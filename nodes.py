@@ -2,6 +2,7 @@ from state import GraphState
 from chains import relevance_grader, hallucination_grader, AnswerGrader
 from retriever import retriever
 #from langchain_community.tools.tavily_search import TavilySearchResults
+from langsmith import traceable
 from langchain_tavily import TavilySearch
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -20,6 +21,7 @@ rag_prompt = ChatPromptTemplate.from_template(
 )
 rag_chain = rag_prompt | llm | StrOutputParser()
 
+@traceable(name="vector store retrieval")
 def retrieve(state: GraphState) -> GraphState:
     docs = retriever.invoke(state["question"])
     return {"documents": docs}

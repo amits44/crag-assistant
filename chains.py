@@ -2,6 +2,9 @@ from langchain_core.prompts import ChatPromptTemplate
 #from langchain_ollama import ChatOllama
 from langchain_groq import ChatGroq
 from pydantic import BaseModel, Field
+from dotenv import load_dotenv
+
+load_dotenv()
 
 llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
 
