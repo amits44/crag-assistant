@@ -7,6 +7,7 @@ langchain-community
 langchain-core
 langchain-huggingface
 langchain-ollama
+langchain-groq
 langchain-text-splitters
 langchain-chromadb
 streamlit
