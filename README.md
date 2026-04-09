@@ -9,14 +9,14 @@ A **Corrective Retrieval-Augmented Generation (CRAG)** system that intelligently
 
 ##  Features
 
--  Multi-Format Document Support** - PDF, TXT, MD, CSV files
-- ** Intelligent Retrieval - Vector similarity search with relevance grading
-- ** Web Fallback** - Automatically searches the web when local documents are insufficient
-- ** Hallucination Detection** - Validates answers against source documents
-- ** Self-Correction** - Retries generation if answers are not grounded
-- ** Source Tracking** - Shows which documents/sources were used
-- ** Feedback System** - Integrated with LangSmith for answer quality tracking
-- ** Real-time Processing** - Interactive Streamlit interface
+-  Multi-Format Document Support - PDF, TXT, MD, CSV files
+-  Intelligent Retrieval - Vector similarity search with relevance grading
+-  Web Fallback - Automatically searches the web when local documents are insufficient
+-  Hallucination Detection - Validates answers against source documents
+-  Self-Correction - Retries generation if answers are not grounded
+-  Source Tracking - Shows which documents/sources were used
+-  Feedback System - Integrated with LangSmith for answer quality tracking
+-  Real-time Processing - Interactive Streamlit interface
 
 ##  Architecture
 
@@ -54,12 +54,12 @@ A **Corrective Retrieval-Augmented Generation (CRAG)** system that intelligently
               │   Checking   │
               └──────┬───────┘
                      │
-                     ├──► Grounded ──► ✅ Return Answer
+                     ├──► Grounded ──►  Return Answer
                      │
-                     └──► Not Grounded ──► 🔄 Retry (max 3x)
+                     └──► Not Grounded ──►  Retry (max 3x)
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -151,7 +151,7 @@ result = app.invoke({
 print(result["generation"])
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 crag-research-assistant/
@@ -170,7 +170,7 @@ crag-research-assistant/
 └── chroma_db/              # Vector database (auto-generated)
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Retriever Settings (`retriever.py`)
 
@@ -195,7 +195,7 @@ llm = ChatGroq(
 )
 ```
 
-## 🧪 How It Works
+##  How It Works
 
 ### 1. **Document Retrieval**
 - Converts your question into embeddings using `all-MiniLM-L6-v2`
@@ -220,17 +220,17 @@ llm = ChatGroq(
 - **Answer Grading**: Confirms answer addresses the question
 - **Retry Logic**: Regenerates up to 3 times if quality checks fail
 
-## 📊 Monitoring with LangSmith
+##  Monitoring with LangSmith
 
 The system integrates with LangSmith for:
-- 📈 Tracing each query through the graph
-- 👍👎 Collecting user feedback
-- 🔍 Debugging failed queries
-- 📉 Performance analytics
+-  Tracing each query through the graph
+-  Collecting user feedback
+-  Debugging failed queries
+-  Performance analytics
 
 View your runs at: [smith.langchain.com](https://smith.langchain.com)
 
-## 🎯 Use Cases
+##  Use Cases
 
 - **Academic Research** - Query multiple research papers
 - **Technical Documentation** - Search internal knowledge bases
@@ -238,7 +238,7 @@ View your runs at: [smith.langchain.com](https://smith.langchain.com)
 - **Business Intelligence** - Analyze reports and market research
 - **Personal Knowledge Management** - Your second brain for notes
 
-## 🛠️ Customization
+##  Customization
 
 ### Add New Document Types
 
@@ -273,14 +273,14 @@ from langchain_openai import ChatOpenAI
 llm = ChatOpenAI(model="gpt-4", temperature=0)
 ```
 
-## ⚠️ Known Limitations
+##  Known Limitations
 
 - **Embedding Model**: `all-MiniLM-L6-v2` is fast but not state-of-the-art
 - **Web Search**: Limited to 3 results per query (Tavily free tier)
 - **No Streaming**: Answers appear all at once (can be improved)
 - **Single User**: No authentication or multi-user support
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [ ] Add streaming responses
 - [ ] Support for images in documents
@@ -291,7 +291,7 @@ llm = ChatOpenAI(model="gpt-4", temperature=0)
 - [ ] Advanced search filters
 - [ ] API endpoint deployment
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please:
 
@@ -301,11 +301,11 @@ Contributions are welcome! Please:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **LangChain** - For the RAG framework
 - **LangGraph** - For the agentic workflow orchestration
@@ -318,11 +318,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or feedback:
 - Open an issue on GitHub
-- Email: your.email@example.com
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
+- Email: amitsingjyala@gmail.com
 
 ---
 
-⭐ **Star this repo** if you find it useful!
-
-Made with ❤️ and 🤖 by [Your Name]
