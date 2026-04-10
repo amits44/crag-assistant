@@ -4,7 +4,7 @@ from langchain_core.vectorstores import VectorStoreRetriever
 from pathlib import Path
 
 CHROMA_DIR = "chroma_db"
-TOP_K = 4
+TOP_K = 6
 SCORE_THRESHOLD = 0.4
 
 def get_retriever()-> VectorStoreRetriever:

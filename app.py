@@ -37,7 +37,7 @@ if uploaded_files:
     st.sidebar.info(" Run ingestion to index new documents (see below)")
 
 # Ingestion button
-if st.sidebar.button(" Re-index Documents"):
+if st.sidebar.button("Index Documents"):
     with st.spinner("Indexing documents..."):
         from ingest import load_documents, split_documents, build_vectorstore, DOCS_DIR, CHROMA_DIR
         try:
@@ -68,7 +68,7 @@ if st.button(" Search", type="primary") and query:
             }
             
             runs = list(ls_client.list_runs(
-                project_name="crag-tech-support",  # Consider renaming to "crag-research-assistant"
+                project_name="crag-research-assistant",  # Consider renaming to "crag-research-assistant"
                 limit=1,
                 is_root=True,
             ))
