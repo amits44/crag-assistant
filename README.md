@@ -120,7 +120,7 @@ streamlit run app.py
 
 The app will open at `http://localhost:8501`
 
-## 📖 Usage
+##  Usage
 
 ### Through the Web Interface
 
