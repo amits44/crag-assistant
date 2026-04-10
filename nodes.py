@@ -16,8 +16,15 @@ web_search_tool = TavilySearch(max_results=3)
 llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
 
 rag_prompt = ChatPromptTemplate.from_template(
-    "You are a helpful tech support engineer. Answer based on the context below.\n\n"
-    "Context: {context}\n\nQuestion: {question}"
+    "You are an expert research assistant. Provide comprehensive, well-cited answers based on the context below.\n\n"
+    "When answering:\n"
+    "- Synthesize information from multiple sources when available\n"
+    "- Highlight key findings and main arguments\n"
+    "- Note any conflicting information or gaps in the sources\n"
+    "- Be precise and academic in tone\n\n"
+    "Context: {context}\n\n"
+    "Research Question: {question}\n\n"
+    "Answer:"
 )
 rag_chain = rag_prompt | llm | StrOutputParser()
 

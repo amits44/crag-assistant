@@ -1,4 +1,4 @@
-from typing import TypedDict, List
+from typing import TypedDict, List, Optional
 from langchain_core.documents import Document
 
 class GraphState(TypedDict):
@@ -7,4 +7,6 @@ class GraphState(TypedDict):
     web_fallback: bool
     hallucination: bool
     retry_count: int
-    documents: List[str]
+    documents: List[Document]
+    sources_used: Optional[List[str]]
+    search_type: Optional[str]

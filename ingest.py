@@ -6,6 +6,8 @@ from langchain_community.document_loaders import (
     TextLoader,
     UnstructuredMarkdownLoader,
     DirectoryLoader,
+    CSVLoader,
+    UnstructuredWordDocumentLoader ,
 )
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -21,7 +23,9 @@ def load_documents(docs_dir: str= DOCS_DIR):
     loaders=[
         DirectoryLoader(docs_dir, glob="**/*.pdf", loader_cls = PyPDFLoader),
         DirectoryLoader(docs_dir, glob="**/*.txt", loader_cls = TextLoader),
-        DirectoryLoader(docs_dir, glob="**/*.md", loader_cls = UnstructuredMarkdownLoader)
+        DirectoryLoader(docs_dir, glob="**/*.md", loader_cls = UnstructuredMarkdownLoader),
+        DirectoryLoader(docs_dir, glob="**/*.csv", loader_cls = CSVLoader ),
+        DirectoryLoader(docs_dir, glob="**/*.docs", loader_cls = UnstructuredWordDocumentLoader)
     ]
     for loader in loaders:
         try:
@@ -63,12 +67,10 @@ def build_vectorstore(chunks, persist_dir: str= CHROMA_DIR):
 if __name__ == "__main__":
     print("=== CRAG Tech Support — Ingestion Pipeline ===\n")
 
-    # 1. Check docs folder exists
     if not Path(DOCS_DIR).exists():
         os.makedirs(DOCS_DIR)
         print(f"Created '{DOCS_DIR}/' — add your PDFs, TXTs, or MDs there and re-run.")
     else:
-        # 2. Load → split → embed → persist
         docs   = load_documents(DOCS_DIR)
         chunks = split_documents(docs)
         build_vectorstore(chunks, CHROMA_DIR)
