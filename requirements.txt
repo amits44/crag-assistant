@@ -6,12 +6,11 @@ langsmith
 langchain-community
 langchain-core
 langchain-huggingface
-langchain-ollama
 langchain-groq
 langchain-text-splitters
-langchain-chromadb
+langchain
+chromadb
 streamlit
-langsmith
 langgraph-checkpoint
 langgraph-prebuilt
 langgraph-sdk
